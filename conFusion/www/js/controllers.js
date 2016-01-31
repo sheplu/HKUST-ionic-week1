@@ -150,7 +150,7 @@ angular.module('conFusion.controllers', [])
         console.log($scope.mycomment);
 
         $scope.dish.comments.push($scope.mycomment);
-menuFactory.getDishes().update({id:$scope.dish.id},$scope.dish);
+        menuFactory.getDishes().update({id:$scope.dish.id},$scope.dish);
 
         $scope.commentForm.$setPristine();
 
@@ -179,8 +179,9 @@ menuFactory.getDishes().update({id:$scope.dish.id},$scope.dish);
                         $scope.promotion = menuFactory.getPromotion().get({id:0});
       }])
 
-.controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
+.controller('AboutController', ['$scope', 'corporateFactory', 'baseURL', function($scope, corporateFactory, baseURL) {
 
+            $scope.baseURL = baseURL;
             $scope.leaders = corporateFactory.query();
             console.log($scope.leaders);
 
